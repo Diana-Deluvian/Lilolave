@@ -1,0 +1,14 @@
+li {
+    list-style: none;
+    font-size: 0.75em;
+    padding: 0.1em;
+    color:gainsboro;
+}
+
+li:first-of-type {
+    margin-top: 0.5em;
+}
+
+.activeItem {
+    background-color: gray;
+}

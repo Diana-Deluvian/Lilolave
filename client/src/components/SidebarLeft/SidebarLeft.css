@@ -1,0 +1,24 @@
+.SideBarLeft {
+    background-color: black;
+    color: white;
+    text-align: center;
+    width: 20vw;
+    font-size: 0.5em;
+    display: inline-block;
+    position: relative;
+}
+
+
+.SideBarLeft div {
+    display: none;
+    position: absolute;
+    background-color: black;
+    width: 20vw;
+    z-index: 1;
+    font-size: 0.5em;
+
+}
+
+.SideBarLeft:hover  div {
+    display: block;
+}

@@ -1,6 +1,8 @@
 import React from 'react';
 import Item from './Item/Item';
 
+import './Category.css';
+
 const Category = ({categoryItems, category}) => {
     let items = [];
     for(let item in categoryItems) {
@@ -9,7 +11,7 @@ const Category = ({categoryItems, category}) => {
 
 console.log(categoryItems);
     return(
-        <ul> {category}
+        <ul> <span>{category}</span>
             {items}
         </ul>
     )

@@ -1,9 +1,11 @@
 import React from 'react';
 
-const SidebarLeft = () => {
+import './SidebarRight.css'
+
+const SidebarRight = () => {
     return (
-        <div> Search </div>
+        <div className="SidebarRight"> <span>About</span> </div>
     )
 }
 
-export default SidebarLeft;
+export default SidebarRight;

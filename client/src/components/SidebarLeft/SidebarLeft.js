@@ -1,6 +1,8 @@
 import React from 'react';
 import Category from './Category/Category';
 
+import './SidebarLeft.css'
+
 const categories = {
     Literature: ["Essays", "Reviews", "Poems"],
     Media: ["Film critique", "Game analysis", "Series introspection"]
@@ -14,7 +16,8 @@ for(let category in categories) {
 const SidebarLeft = () => {
     return (
         <div className="SideBarLeft">
-            {categoryList}
+            <span id="Categories">Categories</span>
+            <div>{categoryList}</div>
         </div>
     )
 }
