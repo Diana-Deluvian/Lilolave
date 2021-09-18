@@ -1,3 +1,10 @@
 .mainContentContainer {
-    border: 1px solid black;
+    display: flex;
+    width: 66%;
+    min-width: 500px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 2em;
 }

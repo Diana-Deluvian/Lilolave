@@ -1,8 +1,9 @@
-.footer {  
-    position: fixed;   
-    bottom: 0px;    
+.footer {      
     width: 100%;  
     background-color: gray;  
     color: white;  
-    text-align: center;  
+    text-align: center;
+    margin-top: 50px; 
+    display: block;
+    height: 50px;
 } 

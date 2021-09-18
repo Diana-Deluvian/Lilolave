@@ -1,0 +1,36 @@
+.Post {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    border: 1px solid gray;
+    border-radius: 1em;
+    align-items: center;
+    margin-bottom: 2em;
+
+}
+
+.Post * {
+    max-width: 80%;
+
+}
+.postName {
+    font-size: 1.5em;
+    padding: 0.5em;
+}
+
+.postBottomInfo {
+    max-width: 100%;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8em;
+    color: gray;
+}
+
+hr {
+    width: 60%;
+    border-width: 0.08em;
+    border-radius: 25%;
+    opacity: 0.5;
+    margin-bottom: 0.5em;
+}
