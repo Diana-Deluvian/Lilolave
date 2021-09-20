@@ -7,10 +7,10 @@ import SidebarRight from '../SidebarRight/SidebarRight';
 import './Header.css';
 
 
-const Header = () => {
+const Header = ({ setFilter }) => {
     return (
         <div className='header'>
-            <SidebarLeft />
+            <SidebarLeft setFilter={setFilter} />
             <div id="Lilolave">
             <IconContext.Provider value={{ style: {marginRight: '0.5rem'}}} >
             <FaHeartbeat />

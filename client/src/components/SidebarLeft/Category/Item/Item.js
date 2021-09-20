@@ -1,9 +1,9 @@
 import React from 'react';
 import './Item.css'
 
-const Item = ({item}) => {
+const Item = ({item, setFilter}) => {
     return (
-        <li>{item}</li>
+        <li onClick={() => setFilter(item)}>{item}</li>
     )
 }
 

@@ -3,10 +3,10 @@ import Item from './Item/Item';
 
 import './Category.css';
 
-const Category = ({categoryItems, category}) => {
+const Category = ({categoryItems, category, setFilter}) => {
     let items = [];
     for(let item in categoryItems) {
-        items.push(<Item item={categoryItems[item]} />);
+        items.push(<Item item={categoryItems[item]} setFilter={setFilter} />);
         }
 
 console.log(categoryItems);

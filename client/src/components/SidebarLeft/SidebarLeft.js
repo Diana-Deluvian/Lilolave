@@ -13,7 +13,17 @@ for(let category in categories) {
     }
 
 
-const SidebarLeft = () => {
+const SidebarLeft = ( { setFilter } ) => {
+
+    const categories = {
+        Literature: ["Essays", "Reviews", "Poems"],
+        Media: ["Film critique", "Game analysis", "Series introspection"]
+    }
+    let categoryList = [];
+    for(let category in categories) {
+        categoryList.push(<Category setFilter={setFilter} category={category} categoryItems={categories[category]} />);
+        }
+
     return (
         <div className="SideBarLeft">
             <span id="Categories">Categories</span>
