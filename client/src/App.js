@@ -11,7 +11,7 @@ import Post from './components/Post/Post';
 import Footer from './components/Footer/Footer';
 
 const FILTER_MAP = {
-  All: () => true,
+  "All": () => true,
   "Essays": post => post.category === 'Essays',
   "Poems": post => post.category === 'Poems',
   "Reviews": post => post.category === 'Reviews',
@@ -53,7 +53,7 @@ const DATA = [{
 }];
 
 function App() {
-  const [filter, setFilter] = useState('Essays');
+  const [filter, setFilter] = useState('All');
   return (
     <Router>
       <Header setFilter={setFilter} />
@@ -63,7 +63,7 @@ function App() {
         </Route>
         <Route path={`/`}>
           <div className='container'>
-            <MainContent posts = {DATA} filter={filter} FILTER_MAP={FILTER_MAP} essays = {essays} />
+            <MainContent posts = {DATA} filter={filter} FILTER_MAP={FILTER_MAP}/>
         </div>
         </Route>
       </Switch>

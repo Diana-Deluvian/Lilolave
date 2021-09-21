@@ -1,6 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 
-import './Post.css';
+
+import './ThumbPost.css';
 
 function ellipsify (str) {
     if (str.length > 100) {
@@ -11,9 +14,12 @@ function ellipsify (str) {
     }
 }
 
-const Post = ({ category, name, content, date }) => {
+const ThumbPost = ({ category, name, content, date, id }) => {
+    let history = useHistory();
     return(
-        <div className="Post">
+
+        <div className="Post" onClick={() => history.push(`/post/${id}`) }>
+            
             <h3 className="postName">{name} </h3>
             <hr></hr>
             <p className="postContent">{ellipsify(content)}</p>
@@ -21,9 +27,8 @@ const Post = ({ category, name, content, date }) => {
                 <p className="postCategory">{category}</p>
                 <p className="postDate">{date}</p>
             </div>
-
         </div>
     )
 }
 
-export default Post;
+export default ThumbPost;
