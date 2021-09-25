@@ -1,0 +1,14 @@
+.postContainer{
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    text-align: center;
+}
+
+.postContainer * {
+    border: 1px solid black;
+}
+
+.postContent {
+    text-align: left;
+}

@@ -57,16 +57,18 @@ function App() {
   return (
     <Router>
       <Header setFilter={setFilter} />
+      <div className='container'>
       <Switch>
         <Route path={`/post/:postId`}>
           <Post posts = {DATA}  />
         </Route>
         <Route path={`/`}>
-          <div className='container'>
+         
             <MainContent posts = {DATA} filter={filter} FILTER_MAP={FILTER_MAP}/>
-        </div>
+        
         </Route>
       </Switch>
+      </div>
       <Footer />
     </Router>
   );
