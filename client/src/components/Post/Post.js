@@ -13,19 +13,18 @@ const Post = ( { posts, match } ) => {
     //let post = posts.find(post => post.id === postId);
     let post = {
       name: "What love is, What love could be",
-      content: ` 	While I liked the general direction the book took and nodded along to a lot of the conclusions Jenkins reaches, I still found the work lacking in several notable ways. The explanation can be as simple as that she wanted to make the book accessible (and not too bold) to a large, primarily monogamous, heterosexual, and allonormative audience, but that does not change the fact that a lot of the book is rather meek.
-
+      content: ["While I liked the general direction the book took and nodded along to a lot of the conclusions Jenkins reaches, I still found the work lacking in several notable ways. The explanation can be as simple as that she wanted to make the book accessible (and not too bold) to a large, primarily monogamous, heterosexual, and allonormative audience, but that does not change the fact that a lot of the book is rather meek.",
       
-      There isn't really a discussion on who the groups practicing polyamory are (and even more importantly, any conclusions you could draw from that that would definitely strengthen her main thesis of amatonormativity as part of the nuclear family propagator), check and discuss any patterns there, the uncritical use of the term "ethical non-monogamy", baffled me. I am always disappointed when I see it propagated by polyam people, but a person writing seriously on the topic, especially in defense* of polyamory should expunge it from their vocabulary, or even better, largely discuss the implicit questioning of the ethics of polyamorous people.
+      "There isn't really a discussion on who the groups practicing polyamory are (and even more importantly, any conclusions you could draw from that that would definitely strengthen her main thesis of amatonormativity as part of the nuclear family propagator), check and discuss any patterns there, the uncritical use of the term \"ethical non-monogamy\", baffled me. I am always disappointed when I see it propagated by polyam people, but a person writing seriously on the topic, especially in defense* of polyamory should expunge it from their vocabulary, or even better, largely discuss the implicit questioning of the ethics of polyamorous people.",
+      "In fact, the very act of pretending that gay love and relations are solved just because some governments have made marriage legal is wrong, in the nicest terms. And this comment really sets the tone for the work for me - criticism of a lot of \"big philosophers\", but inevitably still leaning on them. A misunderstanding of what social constructs really are - there is a claim that they cannot themselves produce profound biological changes in us, when they most definitely can. That is trivial to prove.",
       
-      In fact, the very act of pretending that gay love and relations are solved just because some governments have made marriage legal is wrong, in the nicest terms. And this comment really sets the tone for the work for me - criticism of a lot of "big philosophers", but inevitably still leaning on them. A misunderstanding of what social constructs really are - there is a claim that they cannot themselves produce profound biological changes in us, when they most definitely can. That is trivial to prove.
-      
-      I want to end my review with a quote from the book that I think sums up my problems with it: "Many well-adjusted, happy, productive, and socially valuable people are single and haven’t been in love;"`,
+      "I want to end my review with a quote from the book that I think sums up my problems with it: \"Many well-adjusted, happy, productive, and socially valuable people are single and haven’t been in love;\""],
       category: "Reviews",
       date: "01.01.20",
       keywords: ["love", "polyamory", "philosophy"],
-      additionalResources: [],
-      references: [],
+      additionalResources: ["Resource1", "resource2"],
+      references:["reference1", "reference2"],
+      additionalInfo: ["additional info1", "additional info2"],
       personalNotes: ["Bad impression on the prologue, author comes across as a liberal, and there's a presumption that gay people are already broadly accepted (especially in mainstream media culture). Absolutely no mention of trans people so far, or how they might be relevant here.",
                       "Comparisson between the mystique of love to the 'feminine mystique'",
                     "The main theory the author presents is that love has a dual form - informed both by cultural and biological factors. She seeks to mainly base her analysis on critical thinking and the like (analytical metaphysics)",
@@ -45,16 +44,22 @@ const Post = ( { posts, match } ) => {
 `,
 `The presumption of love as the force of ultimate good is kinda not questioned. "genuine love", to dismiss all the potential negative consequences of its hyper-focus is already the status quo.`]
     }
+
     return(
       <div className="postContainer">
           <h1 className="postHeader">{post.name}</h1>
-          <p className="postContent">{post.content}</p>
+          {post.content.map(content => <p className="postContent">{content}</p>)}
           <p className="postDate">Posted on: {post.date}</p>
           <p className="postCategory">Category: {post.category}</p>
-          <p className="postKeywords">Keywords: {post.keywords}</p>
-          <p className="postAdditionalInfo">Additional Information: {post.additionalInfo}</p>
-          <p className="postPersonalNotes">Personal Notes: {post.personalNotes}</p>
-          <p className="postReferences">References: {post.references}</p>
+          <p className="postKeywords">Keywords: {post.keywords.map(keyword => <a href={`/search/${keyword}`}>{keyword}, </a>)}</p>
+          <ul className="postAdditionalResources">Additional Resources:
+             {post.additionalResources.map(resource => <li>{resource}</li>)}</ul>   
+          <ul className="postAdditionalInfo">Additional Information:
+             {post.references.map(info => <li>{info}</li>)}</ul>
+          <ol className="postReferences">References:
+             {post.references.map(reference => <li>{reference}</li>)}</ol>
+          <p className="postPersonalNotes">Personal Notes:</p>
+          {post.personalNotes.map(personalNotes => <p className="postPersonalNotes">{personalNotes}</p>)}
       </div>
     )
 }

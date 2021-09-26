@@ -3,7 +3,7 @@ import './Item.css'
 
 const Item = ({item, setFilter}) => {
     return (
-        <li onClick={() => setFilter(item)}>{item}</li>
+        <li className="sidebarLeftItem" onClick={() => setFilter(item)}>{item}</li>
     )
 }
 

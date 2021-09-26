@@ -2,13 +2,60 @@
     display: flex;
     width: 50%;
     flex-direction: column;
-    text-align: center;
+    font-family: 'Koh Santepheap', cursive;
 }
 
 .postContainer * {
-    border: 1px solid black;
+    
+}
+
+.postHeader {
+    margin-top: 2em;
+    margin-bottom: 1em;
+    text-align: center;
+    font-size: 2.5em;
 }
 
 .postContent {
-    text-align: left;
+    font-size: 1.1em;
+    line-height: 1.7;
+    margin-bottom: 1em;
+}
+
+.postDate {
+}
+
+
+.postAdditionalResources, .postAdditionalInfo, .postReferences {
+    font-size: 1em;
+    padding-left: 0;
+}
+
+.postAdditionalResources li, .postAdditionalInfo li, .postReferences li {
+    font-size: 1em;
+    padding-left: 1em;
+    margin: 0.5em;
+    list-style-position: inside
+}
+
+.postReferences li {
+    color: gray;
+}
+
+.postPersonalNotes {
+
+}
+
+.postPersonalNotes {
+    font-size: 1.5em;
+    margin-bottom: 1.5em;
+}
+
+/* 
+ * Select all but the first .red child of .home,
+ * and remove the border from the previous rule.
+ */
+ .postContainer > .postPersonalNotes ~ .postPersonalNotes {
+    margin-bottom: 0.5em;
+    font-size: 1em;
 }

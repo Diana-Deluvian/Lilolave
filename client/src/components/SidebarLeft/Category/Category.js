@@ -11,7 +11,7 @@ const Category = ({categoryItems, category, setFilter}) => {
 
 console.log(categoryItems);
     return(
-        <ul> <span>{category}</span>
+        <ul className="sidebarLeftCategory"> <span>{category}</span>
             {items}
         </ul>
     )
