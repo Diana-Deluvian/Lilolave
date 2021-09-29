@@ -1,0 +1,12 @@
+.NewPostForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+
+.NewPostCategories {
+    padding: 1em;
+
+    display: flex;
+}

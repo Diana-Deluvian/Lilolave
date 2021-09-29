@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Route, Switch,  Link,
 import Header from './components/Header/Header';
 import MainContent from './components/MainContent/MainContent';
 import Post from './components/Post/Post';
+import NewPost from './components/NewPost/NewPost';
 import Footer from './components/Footer/Footer';
 
 const FILTER_MAP = {
@@ -62,11 +63,13 @@ function App() {
         <Route path={`/post/:postId`}>
           <Post posts = {DATA}  />
         </Route>
-        <Route path={`/`}>
-         
-            <MainContent posts = {DATA} filter={filter} FILTER_MAP={FILTER_MAP}/>
-        
+        <Route path={`/new-post`}>
+            <NewPost />
         </Route>
+        <Route path={`/`}>
+            <MainContent posts = {DATA} filter={filter} FILTER_MAP={FILTER_MAP}/>
+        </Route>
+        
       </Switch>
      
       <Footer />
