@@ -1,14 +1,18 @@
 .sidebarLeftItem {
     list-style: none;
     font-size: 0.75em;
-    padding: 0.1em;
+    padding: 0.2em;
     color:gainsboro;
 }
 
 .sidebarLeftItem:first-of-type {
-    margin-top: 0.5em;
+    margin-top: 0.9em;
 }
 
 .activeItem {
     background-color: gray;
+}
+
+.sidebarLeftItem:hover {
+    cursor: pointer; 
 }

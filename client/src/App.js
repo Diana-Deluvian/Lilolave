@@ -20,7 +20,6 @@ const FILTER_MAP = {
   "Series introspection": post => post.category === 'Series introspection'
 };
 
-const essays = (post) => post.category === 'essays';
 const FILTER_NAMES = Object.keys(FILTER_MAP);
 
 const DATA = [{
@@ -55,9 +54,10 @@ const DATA = [{
 function App() {
   const [filter, setFilter] = useState('All');
   return (
+    <div className='container'>
     <Router>
       <Header setFilter={setFilter} />
-      <div className='container'>
+      
       <Switch>
         <Route path={`/post/:postId`}>
           <Post posts = {DATA}  />
@@ -68,9 +68,10 @@ function App() {
         
         </Route>
       </Switch>
-      </div>
+     
       <Footer />
     </Router>
+    </div>
   );
 }
 

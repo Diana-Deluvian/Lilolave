@@ -1,4 +1,5 @@
 .header {
+    width: 100%;
     font-size: 3em;
     text-align: center;
     display: flex;
@@ -7,10 +8,15 @@
     padding: 1rem;
     color: white;
     background-color: black;
+    box-sizing: border-box;
 }
 
 
 #Lilolave {
     display: flex;
     align-items: center;
+}
+
+#Lilolave:hover {
+    cursor: pointer; 
 }

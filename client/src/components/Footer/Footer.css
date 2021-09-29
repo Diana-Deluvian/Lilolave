@@ -4,4 +4,13 @@
     color: white;  
     text-align: center;
     margin-top: 50px; 
+    box-sizing: border-box;
 } 
+
+.footerQuote {
+    max-width: 66%;
+    margin-left:17%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
