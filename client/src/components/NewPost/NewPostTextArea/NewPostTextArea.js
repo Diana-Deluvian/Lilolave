@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const NewPostTextArea = () => {
+const NewPostTextArea = ( {handleChangeContent, content, id }) => {
+    
     return (
-        <h1>hello!</h1>
+        <textarea id={id} onChange={handleChangeContent} value={content}></textarea>
     )
 }
 
