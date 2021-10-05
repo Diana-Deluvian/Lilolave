@@ -52,6 +52,11 @@ const DATA = [{
   id: "04"
 }];
 
+let test = {
+  name: "testp",
+  contents: ["test1", "test2"]
+}
+
 function App() {
   const [filter, setFilter] = useState('All');
   return (
