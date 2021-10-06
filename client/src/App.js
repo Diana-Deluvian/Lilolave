@@ -23,7 +23,7 @@ const FILTER_MAP = {
 
 const FILTER_NAMES = Object.keys(FILTER_MAP);
 
-const DATA = [{
+let DATA = [{
   name: "Test post",
   category: "Poems",
   content: "This is just a test post you stupid bakaThis is just a test post you stupid bakaThis is just a test post you stupid bakaThis is just a test post you stupid bakaThis is just a test post you stupid baka",
@@ -59,6 +59,11 @@ let test = {
 
 function App() {
   const [filter, setFilter] = useState('All');
+  const [newPost, setPost] = useState({});
+
+  const handleNewPost = (newPost) => {
+    DATA.push(newPost);
+  }
   return (
     <div className='container'>
     <Router>
@@ -69,7 +74,7 @@ function App() {
           <Post posts = {DATA}  />
         </Route>
         <Route path={`/new-post`}>
-            <NewPost />
+            <NewPost handleNewPost={handleNewPost}/>
         </Route>
         <Route path={`/`}>
             <MainContent posts = {DATA} filter={filter} FILTER_MAP={FILTER_MAP}/>

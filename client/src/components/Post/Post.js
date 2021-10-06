@@ -8,10 +8,11 @@ import {
 
 import './Post.css';
 
-const Post = ( { posts, match } ) => {
+const Post = ( {posts} ) => {
     let { postId }  = useParams();
-    //let post = posts.find(post => post.id === postId);
-    let post = {
+    let post = posts.find(post => ':' + post.id == postId);
+    console.log(post, postId)
+    /*let post = {
       name: "What love is, What love could be",
       content: ["While I liked the general direction the book took and nodded along to a lot of the conclusions Jenkins reaches, I still found the work lacking in several notable ways. The explanation can be as simple as that she wanted to make the book accessible (and not too bold) to a large, primarily monogamous, heterosexual, and allonormative audience, but that does not change the fact that a lot of the book is rather meek.",
       
@@ -24,7 +25,7 @@ const Post = ( { posts, match } ) => {
       keywords: ["love", "polyamory", "philosophy"],
       additionalResources: ["Resource1", "resource2"],
       references:["reference1", "reference2"],
-      additionalInfo: ["additional info1", "additional info2"],
+      additionalInfos: ["additional info1", "additional info2"],
       personalNotes: ["Bad impression on the prologue, author comes across as a liberal, and there's a presumption that gay people are already broadly accepted (especially in mainstream media culture). Absolutely no mention of trans people so far, or how they might be relevant here.",
                       "Comparisson between the mystique of love to the 'feminine mystique'",
                     "The main theory the author presents is that love has a dual form - informed both by cultural and biological factors. She seeks to mainly base her analysis on critical thinking and the like (analytical metaphysics)",
@@ -43,19 +44,18 @@ const Post = ( { posts, match } ) => {
 `Makes a great point on how the acceptence of things often depends on how destabilizing they are, and why same-sex marriage was protested, and what happened when it was accepted. (normalization of amatonormativity and monogamy) 
 `,
 `The presumption of love as the force of ultimate good is kinda not questioned. "genuine love", to dismiss all the potential negative consequences of its hyper-focus is already the status quo.`]
-    }
+    }*/
 
     return(
       <div className="postContainer">
-          <h1 className="postHeader">{post.name}</h1>
-          {post.content.map(content => <p className="postContent">{content}</p>)}
+          <h1 className="postHeader">{post.title}</h1>
+          {post.contents.map(content => <p className="postContent">{content}</p>)}
           <p className="postDate">Posted on: {post.date}</p>
           <p className="postCategory">Category: {post.category}</p>
           <p className="postKeywords">Keywords: {post.keywords.map(keyword => <a href={`/search/${keyword}`}>{keyword}, </a>)}</p>
-          <ul className="postAdditionalResources">Additional Resources:
-             {post.additionalResources.map(resource => <li>{resource}</li>)}</ul>   
+          
           <ul className="postAdditionalInfo">Additional Information:
-             {post.references.map(info => <li>{info}</li>)}</ul>
+             {post.additionalInfos.map(info => <li>{info}</li>)}</ul>
           <ol className="postReferences">References:
              {post.references.map(reference => <li>{reference}</li>)}</ol>
           <p className="postPersonalNotes">Personal Notes:</p>

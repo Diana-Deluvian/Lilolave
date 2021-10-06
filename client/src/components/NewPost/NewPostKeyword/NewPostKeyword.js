@@ -1,12 +1,12 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 import './NewPostKeyword.css';
 
-const NewPostKeyword = ({keyword,id, gabagool, handleChangeKeyword, deleteKeyword}) => {
+const NewPostKeyword = ({keyword, index, handleChangeKeyword, deleteKeyword}) => {
     return(
         <div>
-        <input id={id} onChange={handleChangeKeyword} value={keyword}></input>
-        <button name={id} gabagool={gabagool} onClick={deleteKeyword}>Delete keyword</button>
+        <input data-index={index} onChange={handleChangeKeyword} value={keyword}></input>
+        <button data-index={index}  onClick={deleteKeyword}>Delete keyword</button>
         </div>
     )
 }
