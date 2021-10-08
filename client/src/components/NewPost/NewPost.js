@@ -180,12 +180,11 @@ const NewPost = (props) => {
 
     const handlePostSubmit = (e) => {
       e.preventDefault();
-      let newPost = {title, contents, keywords, references, additionalInfos, personalNotes, id: "07"};
+      let newPost = {title, contents, keywords, references, additionalInfos, personalNotes};
       fetch('https://pifc.herokuapp.com/')
         .then(response => response.json())
         .then(data => newPost.date = data.fullDate)
-        .then(props.handleNewPost(newPost))
-        .then(history.push("/post/:" + newPost.id))
+        .then(props.handleNewPost(newPost));         
     }
     
     return (

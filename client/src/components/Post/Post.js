@@ -9,8 +9,9 @@ import {
 import './Post.css';
 
 const Post = ( {posts} ) => {
+  console.log(posts);
     let { postId }  = useParams();
-    let post = posts.find(post => ':' + post.id == postId);
+    let post = posts.find(post =>  post._id == postId);
     console.log(post, postId)
     /*let post = {
       name: "What love is, What love could be",
@@ -52,7 +53,7 @@ const Post = ( {posts} ) => {
           {post.contents.map(content => <p className="postContent">{content}</p>)}
           <p className="postDate">Posted on: {post.date}</p>
           <p className="postCategory">Category: {post.category}</p>
-          <p className="postKeywords">Keywords: {post.keywords.map(keyword => <a href={`/search/${keyword}`}>{keyword}, </a>)}</p>
+          
           
           <ul className="postAdditionalInfo">Additional Information:
              {post.additionalInfos.map(info => <li>{info}</li>)}</ul>

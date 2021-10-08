@@ -1,9 +1,9 @@
 
 import './App.css';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Route, Switch,  Link,
   useRouteMatch,
-  useParams } from 'react-router-dom'
+  useParams, useHistory } from 'react-router-dom'
 
 import Header from './components/Header/Header';
 import MainContent from './components/MainContent/MainContent';
@@ -23,67 +23,51 @@ const FILTER_MAP = {
 
 const FILTER_NAMES = Object.keys(FILTER_MAP);
 
-let DATA = [{
-  name: "Test post",
-  category: "Poems",
-  content: "This is just a test post you stupid bakaThis is just a test post you stupid bakaThis is just a test post you stupid bakaThis is just a test post you stupid bakaThis is just a test post you stupid baka",
-  date: "April, ninth, 2020",
-  id: "01"
-},
-{
-  name: "Test post",
-  category: "poems",
-  content: "This is just a test post you stupid bakaThis is just a test post you stupid bakaThis is just a test post you stupid bakaThis is just a test post you stupid bakaThis is just a test post you stupid baka",
-  date: "April, ninth, 2020",
-  id: "02"
-},
-{
-  name: "Test post",
-  category: "Essays",
-  content: "This is just a test post you stupid bakaThis is just a test post you stupid bakaThis is just a test post you stupid bakaThis is just a test post you stupid baka",
-  date: "April, ninth, 2020",
-  id: "03"
-},
-{
-  name: "Test post",
-  category: "essays",
-  content: "This is just a test post you stupid bakaThis is just a test post you stupid bakaThis is just a test post you stupid bakaThis is just a test post you stupid baka",
-  date: "April, ninth, 2020",
-  id: "04"
-}];
-
-let test = {
-  name: "testp",
-  contents: ["test1", "test2"]
-}
 
 function App() {
   const [filter, setFilter] = useState('All');
+  const [postsState, setPostsState] = useState({
+    loading: false, posts: []});
   const [newPost, setPost] = useState({});
+  let history = useHistory();
+
+  useEffect(() => {
+    setPostsState({ loading: true });
+    fetch('http://localhost:8080/getPosts')
+    .then(response => response.json())
+    .then(data => setPostsState({loading: false, posts: data}))
+  },[setPostsState]);
 
   const handleNewPost = (newPost) => {
-    DATA.push(newPost);
+    fetch('http://localhost:8080/postPost', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json',
+      "Access-Control-Allow-Origin": '*'},
+      body: JSON.stringify(newPost),
+    }).then(response => response.json())
+    .then(data => {setPostsState({ posts:[...postsState.posts, data] })
+    history.push(`/post/:${data._id}`)});
   }
+
+  if(postsState.loading) return <h1>1 sec pls</h1>
   return (
     <div className='container'>
-    <Router>
-      <Header setFilter={setFilter} />
       
+      <Header setFilter={setFilter} />
+
       <Switch>
         <Route path={`/post/:postId`}>
-          <Post posts = {DATA}  />
+          <Post posts = {postsState.posts}  />
         </Route>
         <Route path={`/new-post`}>
             <NewPost handleNewPost={handleNewPost}/>
         </Route>
         <Route path={`/`}>
-            <MainContent posts = {DATA} filter={filter} FILTER_MAP={FILTER_MAP}/>
+           <MainContent posts = {postsState.posts} filter={filter} FILTER_MAP={FILTER_MAP}/>
         </Route>
         
       </Switch>
-     
       <Footer />
-    </Router>
     </div>
   );
 }

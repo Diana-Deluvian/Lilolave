@@ -14,15 +14,16 @@ function ellipsify (str) {
     }
 }
 
-const ThumbPost = ({ category, name, content, date, id }) => {
+const ThumbPost = ({ category, title, contents, date, _id }) => {
     let history = useHistory();
+    console.log(_id);
     return(
 
-        <div className="Post" onClick={() => history.push(`/post/${id}`) }>
+        <div className="Post" onClick={() => history.push(`/post/${_id}`) }>
             
-            <h3 className="postName">{name} </h3>
+            <h3 className="postName">{title} </h3>
             <hr></hr>
-            <p className="postContent">{ellipsify(content)}</p>
+            <p className="postContent">{ellipsify(contents[0] || "no content")}</p>
             <div className="postBottomInfo">        
                 <p className="postCategory">{category}</p>
                 <p className="postDate">{date}</p>
@@ -32,3 +33,4 @@ const ThumbPost = ({ category, name, content, date, id }) => {
 }
 
 export default ThumbPost;
+
