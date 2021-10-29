@@ -16,6 +16,7 @@ const NewPost = (props) => {
     const [references, setReferences] = useState(props.references || [""]);
     const [additionalInfos, setAdditionalInfos] = useState(props.additionalInfos || [""]);
     const [personalNotes, setPersonalNotes] = useState(props.personalNotes || [""]);
+    const [category, setCategory] = useState(props.personalNotes || "Essays");
 
     let history = useHistory();
 
@@ -180,7 +181,7 @@ const NewPost = (props) => {
 
     const handlePostSubmit = (e) => {
       e.preventDefault();
-      let newPost = {title, contents, keywords, references, additionalInfos, personalNotes};
+      let newPost = {title, contents, keywords, references, additionalInfos, personalNotes, category};
       fetch('https://pifc.herokuapp.com/')
         .then(response => response.json())
         .then(data => newPost.date = data.fullDate)

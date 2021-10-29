@@ -8,7 +8,7 @@ import {
 
 import './Post.css';
 
-const Post = ( {posts} ) => {
+const Post = ( {posts, deletePost} ) => {
   console.log(posts);
     let { postId }  = useParams();
     let post = posts.find(post =>  post._id == postId);
@@ -46,9 +46,12 @@ const Post = ( {posts} ) => {
 `,
 `The presumption of love as the force of ultimate good is kinda not questioned. "genuine love", to dismiss all the potential negative consequences of its hyper-focus is already the status quo.`]
     }*/
-
+function callDelete() {
+  deletePost(postId);
+}
     return(
       <div className="postContainer">
+         <button onClick={callDelete}>Hi!</button>
           <h1 className="postHeader">{post.title}</h1>
           {post.contents.map(content => <p className="postContent">{content}</p>)}
           <p className="postDate">Posted on: {post.date}</p>

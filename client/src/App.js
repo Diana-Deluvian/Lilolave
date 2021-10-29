@@ -46,7 +46,21 @@ function App() {
       body: JSON.stringify(newPost),
     }).then(response => response.json())
     .then(data => {setPostsState({ posts:[...postsState.posts, data] })
-    history.push(`/post/:${data._id}`)});
+    history.push(`/post/${data._id}`)
+   // history.push(`/`)
+  });
+  }
+
+  const deletePost = _id => {
+    fetch('http://localhost:8080/deletePost/' + _id, {
+  method: 'DELETE',
+})
+.then(res => res.text()) // or res.json()
+
+  const newPosts = postsState.posts.filter((post) => post._id !== _id);
+  console.log(newPosts);
+  setPostsState({loading: false, posts: newPosts});
+  history.push('/'); 
   }
 
   if(postsState.loading) return <h1>1 sec pls</h1>
@@ -57,7 +71,7 @@ function App() {
 
       <Switch>
         <Route path={`/post/:postId`}>
-          <Post posts = {postsState.posts}  />
+          <Post posts = {postsState.posts} deletePost={deletePost}  />
         </Route>
         <Route path={`/new-post`}>
             <NewPost handleNewPost={handleNewPost}/>
